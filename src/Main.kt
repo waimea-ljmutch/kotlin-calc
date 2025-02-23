@@ -1,11 +1,12 @@
 
 fun main() {
     println("-------------------")
-    println("caculator!")
+    println("Calculator!")
     println("-------------------")
 
-    val num1 = getInt ("Please enter your 1st number: ")
-    val op = getInt ("Please enter an operation ")
+    val num1 = getDouble ("Please enter your 1st number: ")
+    val op = getString  ("Please enter an operation (+,-,*,/) ")
+    val num2 = getDouble ("Please enter your 2nd number: ")
 }
 
 
@@ -26,7 +27,13 @@ fun getString(prompt: String): String {
         print(prompt)
 
         userInput = readln()
-        if (userInput.isNotBlank()) break
+        when (userInput) {
+            "+" -> break
+            "-" -> break
+            "*" -> break
+            "/" -> break
+
+        }
     }
 
     return userInput
@@ -40,14 +47,15 @@ fun getString(prompt: String): String {
  * returns:
  *   - Int that the user types
  */
-fun getInt(prompt: String): Int {
-    var intValue: Int?
+fun getDouble(prompt: String): Double {
+    var doubleValue: Double?
 
     while(true) {
-        val userInput = getString(prompt)
-        intValue = userInput.toIntOrNull()
-        if (intValue != null) break
+        print(prompt)
+        val userInput = readln()
+        doubleValue = userInput.toDoubleOrNull()
+        if (doubleValue != null) break
     }
 
-    return intValue!!
+    return doubleValue!!
 }
